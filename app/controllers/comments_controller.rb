@@ -80,4 +80,10 @@ class CommentsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def question
+    @question = Comment.all.sample(4)
+    render "index"
+  end
+
 end

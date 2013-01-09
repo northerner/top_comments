@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :comment do
-    content "MyString"
-    video_title "MyString"
+    sequence(:content) {|n| "this is comment number #{n}" }
+    sequence(:video_title) {|n| "video title of comment #{n}" }
   end
 end

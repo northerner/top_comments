@@ -161,4 +161,16 @@ describe CommentsController do
     end
   end
 
+  describe "GET question" do
+    before(:each) do
+      10.times { FactoryGirl.create(:comment) }
+    end
+
+    it "returns four random comments" do
+      get :question
+      assigns(:question).length.should == 4
+    end
+  end
+
+
 end

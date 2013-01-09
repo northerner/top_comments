@@ -1,5 +1,9 @@
 TopComments::Application.routes.draw do
-  resources :comments
+  resources :comments do
+    collection do
+      get 'question'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
