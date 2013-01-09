@@ -31,3 +31,11 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+group :test, :development do
+  gem "rspec-rails"
+  gem "capybara"
+  gem "factory_girl_rails"
+end
+
+gem "haml-rails"
