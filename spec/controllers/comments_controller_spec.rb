@@ -168,7 +168,12 @@ describe CommentsController do
 
     it "returns four random comments" do
       get :question
-      assigns(:question).length.should == 4
+      assigns(:question_set).length.should == 4
+    end
+
+    it "returns an answer variable from the question array" do
+      get :question
+      assigns(:question).should include(assigns(:answer))
     end
   end
 

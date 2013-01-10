@@ -82,8 +82,12 @@ class CommentsController < ApplicationController
   end
 
   def question
-    @question = Comment.all.sample(4)
-    render "index"
+    @question_set = Comment.all.sample(4)
+    @correct_answer = rand(4)
+    session[:correct_answer] = @correct_answer
+    params[:comment] = @question_set[@correct_answer].content
+    
+    render "question"
   end
 
 end
