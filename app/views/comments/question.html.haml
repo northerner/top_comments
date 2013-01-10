@@ -2,3 +2,18 @@
 
 %h2 What music video spawned this youtube comment?
 %p= params[:comment]
+
+%h2 Select answer:
+= form_tag do
+	= radio_button_tag(:answer, "0")
+	= label_tag(:answer_0, @question_set[0].video_title) 
+	= radio_button_tag(:answer, "1")
+	= label_tag(:answer_1, @question_set[1].video_title) 
+	= radio_button_tag(:answer, "2")
+	= label_tag(:answer_2, @question_set[2].video_title) 
+	= radio_button_tag(:answer, "3")
+	= label_tag(:answer_3, @question_set[3].video_title) 
+	= submit_tag("Submit answer")
+
+= unless flash[:notice].blank?
+	%p.flash= flash[:notice]

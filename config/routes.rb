@@ -2,6 +2,7 @@ TopComments::Application.routes.draw do
   resources :comments do
     collection do
       get 'question'
+      post 'question'
     end
   end
 
