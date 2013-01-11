@@ -161,19 +161,28 @@ describe CommentsController do
     end
   end
 
-  describe "GET question" do
-    before(:each) do
-      10.times { FactoryGirl.create(:comment) }
-    end
+  before(:each) do
+    @test_comments = []
+    10.times { @test_comments << FactoryGirl.create(:comment) }
+  end
 
+  describe "GET question" do
     it "returns four random comments" do
       get :question
       assigns(:question_set).length.should == 4
     end
 
-    it "returns an answer variable from the question array" do
+    it "should store a random number between 0 and 3 in session for the answer" do
       get :question
-      assigns(:question).should include(assigns(:answer))
+      session[:correct_answer].should be_between(0, 3)
+    end
+  end
+
+  describe "PUT question" do
+    it "should acknowledge a correct answer in the flash" do
+      session[:correct_answer] = '2'
+      post :question, {:answer => '2'}
+      flash[:notice].should == "Correct answer"
     end
   end
 

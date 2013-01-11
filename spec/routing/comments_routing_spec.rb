@@ -31,5 +31,9 @@ describe CommentsController do
       delete("/comments/1").should route_to("comments#destroy", :id => "1")
     end
 
+    it "routes to #question" do
+      post("/comments/question").should route_to("comments#question")
+    end
+
   end
 end

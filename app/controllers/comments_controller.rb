@@ -83,7 +83,7 @@ class CommentsController < ApplicationController
 
   def question
     if request.post?
-      if params[:selected_answer] == session[:correct_answer]
+      if params[:answer] == session[:correct_answer]
         flash[:notice] = "Correct answer"
       else
         flash[:notice] = "Incorrect answer"
@@ -92,7 +92,7 @@ class CommentsController < ApplicationController
 
     @question_set = Comment.all.sample(4)
     @correct_answer = rand(4)
-    session[:correct_answer] = @correct_answer
+    session[:correct_answer] = @correct_answer.to_s
     params[:comment] = @question_set[@correct_answer].content
     
     render "question"
