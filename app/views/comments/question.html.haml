@@ -17,3 +17,6 @@
 
 = unless flash[:notice].blank?
 	%p.flash= flash[:notice]
+
+= form_tag('/comments/populate') do
+	= submit_tag("Populate")
