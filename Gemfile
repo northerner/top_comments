@@ -39,3 +39,4 @@ group :test, :development do
 end
 
 gem "haml-rails"
+gem "youtube_it"

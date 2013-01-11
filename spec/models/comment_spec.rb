@@ -1,5 +1,8 @@
 require 'spec_helper'
 
 describe Comment do
-  pending "add some examples to (or delete) #{__FILE__}"
+  describe 'populate' do
+  	it 'should return true if it successfully creates any new comments'
+  	it 'should return false if no new comments are created'
+  end
 end

@@ -178,11 +178,25 @@ describe CommentsController do
     end
   end
 
-  describe "PUT question" do
+  describe "POST question" do
     it "should acknowledge a correct answer in the flash" do
       session[:correct_answer] = '2'
       post :question, {:answer => '2'}
       flash[:notice].should == "Correct answer"
+    end
+  end
+
+  describe "POST populate" do
+    it "should acknowledge successful populate request in the flash" do
+      Comment.stub(:populate).and_return(true)
+      post :populate
+      flash[:notice].should == "Populate successful"
+    end
+
+    it "should acknowledge failed populate request in the flash" do
+      Comment.stub(:populate).and_return(false)
+      post :populate
+      flash[:notice].should == "Populate failed"
     end
   end
 

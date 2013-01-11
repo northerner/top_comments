@@ -98,4 +98,14 @@ class CommentsController < ApplicationController
     render "question"
   end
 
+  def populate
+    if Comment.populate
+      flash[:notice] = "Populate successful"
+    else
+      flash[:notice] = "Populate failed"
+    end
+
+    render "question"
+  end
+
 end

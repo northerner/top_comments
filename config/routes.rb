@@ -3,6 +3,7 @@ TopComments::Application.routes.draw do
     collection do
       get 'question'
       post 'question'
+      post 'populate'
     end
   end
 
