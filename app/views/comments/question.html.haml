@@ -1,4 +1,4 @@
-%h1 Question
+%h1 Top Comments
 
 %h2 What music video spawned this youtube comment?
 %p= params[:comment]
@@ -19,6 +19,3 @@
 	%p.flash= flash[:notice]
 
 %p= "Score: #{session[:score]} out of #{session[:question_count]}"
-
-= form_tag('/comments/populate') do
-	= submit_tag("Populate")
