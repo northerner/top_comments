@@ -36,6 +36,11 @@ group :test, :development do
   gem "rspec-rails"
   gem "capybara"
   gem "factory_girl_rails"
+  gem 'sqlite3'
+end
+
+group :production do
+  gem "pg"
 end
 
 gem "haml-rails"
