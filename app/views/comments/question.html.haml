@@ -18,5 +18,7 @@
 = unless flash[:notice].blank?
 	%p.flash= flash[:notice]
 
+%p= "Score: #{session[:score]} out of #{session[:question_count]}"
+
 = form_tag('/comments/populate') do
 	= submit_tag("Populate")

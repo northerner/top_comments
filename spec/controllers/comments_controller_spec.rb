@@ -184,6 +184,14 @@ describe CommentsController do
       post :question, {:answer => '2'}
       flash[:notice].should == "Correct answer"
     end
+
+    it "should increase the score if the correct answer is given" do
+      session[:score] = 5
+      session[:question_count] = 0
+      session[:correct_answer] = '2'
+      post :question, {:answer => '2'}
+      session[:score].should == 6
+    end
   end
 
   describe "POST populate" do

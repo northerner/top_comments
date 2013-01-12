@@ -82,21 +82,34 @@ class CommentsController < ApplicationController
   end
 
   def question
+    populate if Comment.all.empty?
+    setup_score if session[:question_count].nil?
     if request.post?
+      session[:question_count] += 1
       if params[:answer] == session[:correct_answer]
         flash[:notice] = "Correct answer"
+        session[:score] += 1
       else
         flash[:notice] = "Incorrect answer"
       end
     end
 
+    new_question
+    render "question"
+  end
+
+  def setup_score
+    session[:question_count] = 0
+    session[:score] = 0
+  end
+
+  def new_question
     @question_set = Comment.all.sample(4)
     @correct_answer = rand(4)
     session[:correct_answer] = @correct_answer.to_s
     params[:comment] = @question_set[@correct_answer].content
-    
-    render "question"
   end
+
 
   def populate
     if Comment.populate
@@ -104,8 +117,6 @@ class CommentsController < ApplicationController
     else
       flash[:notice] = "Populate failed"
     end
-
-    render "question"
   end
 
 end
