@@ -7,3 +7,5 @@ application.js: application-f51a00e650a4c3f5b0f7c676a2dfa530.js
 application/index.js: application-f51a00e650a4c3f5b0f7c676a2dfa530.js
 application.css: application-e252d56b0706b78c6e2e3ea1ee22aa9b.css
 application/index.css: application-e252d56b0706b78c6e2e3ea1ee22aa9b.css
+question.css: question-fbaa7209e1324d9be1bbc304ec6dedcd.css
+question/index.css: question-fbaa7209e1324d9be1bbc304ec6dedcd.css
