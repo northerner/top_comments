@@ -24,7 +24,5 @@
 	.actions
 		= submit_tag("Submit answer")
 
-= unless flash[:notice].blank?
-	%p.flash= flash[:notice]
-
+%p.flash= flash[:notice]
 %p= "Score: #{session[:score]} out of #{session[:question_count]}"

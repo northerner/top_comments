@@ -101,6 +101,7 @@ class CommentsController < ApplicationController
   def setup_score
     session[:question_count] = 0
     session[:score] = 0
+    flash[:notice] = ""
   end
 
   def new_question
